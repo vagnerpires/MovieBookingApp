@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="movieImage" type="id" />
+    <item name="titleMovie" type="id" />
+    <item name="certificationMovie" type="id" />
+    <item name="starr" type="id" />
+    <item name="starringMovie" type="id" />
+    <item name="movie_badge" type="id" />
+    <item name="runtime" type="id" />
+    <item name="runningTimeMovie" type="id" />
+    <item name="seatsRemainingMovie" type="id" />
+</resources>
