@@ -2,6 +2,7 @@ package com.example.moviebookingapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
@@ -55,11 +56,8 @@ class MainActivity : AppCompatActivity() {
         )
         val movieAdapter = MovieAdapter(movie)
         recyclerView.adapter = movieAdapter
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
-//    private fun getRandomIntRange(start: Int, end: Int): Int {
-//        require(start <= end) { "Illegal Argument" }
-//        return (start..end).random()
-//    }
     }
 }
 
