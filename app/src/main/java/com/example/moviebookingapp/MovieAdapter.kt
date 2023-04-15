@@ -21,11 +21,15 @@ class MovieAdapter(private var movie: List<Movie>, private val itemClickListener
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = movie[position]
         holder.bind(movie)
+        holder.itemView.setOnClickListener {
+            itemClickListener(movie)
+        }
         holder.movieName.text = movie.name
         holder.movieCertification.text = movie.certification
         holder.movieStarring.text = movie.starring.toString()
         holder.movieRunningTime.text = movie.runningTimeMins.toString()
         holder.movieSeatsRemaining.text = movie.seatsRemaining.toString()
+
         Picasso.get()
             .load(movie.image)
             .into(holder.movieImage)
@@ -45,6 +49,14 @@ class MovieAdapter(private var movie: List<Movie>, private val itemClickListener
 
         fun bind(movie: Movie) {
             itemView.setOnClickListener { itemClickListener(movie) }
+
+            val movieBadge: TextView = itemView.findViewById(R.id.movie_badge)
+            if (movie.seatsRemaining < 3) {
+                movieBadge.visibility = View.VISIBLE
+            } else {
+                movieBadge.visibility = View.GONE
+            }
+
         }
     }
 

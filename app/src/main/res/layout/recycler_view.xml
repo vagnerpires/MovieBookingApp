@@ -72,16 +72,21 @@
     <TextView
         android:id="@+id/movie_badge"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/movieImage"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="8dp"
         android:layout_toEndOf="@id/certificationMovie"
         android:background="@drawable/badge"
-        android:padding="10dp"
+        android:padding="4dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:text="@string/filling_fast"
         android:textAlignment="center"
-        android:visibility="invisible" />
+        android:textColor="#FFFFFF"
+        android:textSize="8sp"
+        android:visibility="visible"
+        tools:ignore="SmallSp" />
 
     <TextView
         android:id="@+id/runtime"

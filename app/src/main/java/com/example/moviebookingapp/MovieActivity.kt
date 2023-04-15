@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -19,6 +20,15 @@ class MovieActivity : AppCompatActivity(R.layout.activity_main){
 
         val movie = intent.getSerializableExtra("movie") as? Movie
 
+        if (movie != null) {
+            setupMovieData(movie)
+        } else {
+            Log.e("MovieActivity", "Movie object is null")
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun setupMovieData(movie: Movie) {
         val movieImage = findViewById<ImageView>(R.id.movieImage)
         val movieName = findViewById<TextView>(R.id.titleMovie)
         val movieDescription = findViewById<TextView>(R.id.descriptionMovie)
@@ -30,47 +40,41 @@ class MovieActivity : AppCompatActivity(R.layout.activity_main){
         val minusButton = findViewById<ImageView>(R.id.buttonMinus)
         val homeButton = findViewById<Button>(R.id.homeButton)
 
-        movieName.text = movie?.name
-        movieDescription.text = movie?.description
-        movieStarring.text = movie?.starring?.joinToString(", ")
-        movieRunningTime.text = "${movie?.runningTimeMins} mins"
-        seatsRemaining.text = "${movie?.seatsRemaining} seats remaining"
-        seatsSelected.text = "${movie?.seatsSelected} seats selected"
+        movieName.text = movie.name
+        movieDescription.text = movie.description
+        movieStarring.text = movie.starring.joinToString(", ")
+        movieRunningTime.text = "${movie.runningTimeMins} mins"
+        seatsRemaining.text = "${movie.seatsRemaining} seats remaining"
+        seatsSelected.text = "${movie.seatsSelected} seats selected"
 
         Picasso.get()
-            .load(movie?.image)
+            .load(movie.image)
             .into(movieImage)
 
+        seatsRemaining.text = "${movie.seatsRemaining} seats remaining"
+
         fun updateSeats() {
-            if (movie != null) {
-                plusButton.isEnabled = movie.seatsRemaining> 0
-            }
-            if (movie != null) {
-                minusButton.isEnabled = movie.seatsSelected > 0
-            }
+            plusButton.isEnabled = movie.seatsRemaining> 0
+            minusButton.isEnabled = movie.seatsSelected > 0
         }
 
         minusButton.setOnClickListener {
-            if (movie != null) {
-                if (movie.seatsSelected > 0) {
-                    movie.seatsRemaining++
-                    movie.seatsSelected--
-                    seatsRemaining.text = "${movie.seatsRemaining} seats remaining"
-                    seatsSelected.text = movie.seatsSelected.toString()
-                    updateSeats()
-                }
+            if (movie.seatsSelected > 0) {
+                movie.seatsRemaining++
+                movie.seatsSelected--
+                seatsRemaining.text = "${movie.seatsRemaining} seats remaining"
+                seatsSelected.text = movie.seatsSelected.toString()
+                updateSeats()
             }
         }
 
         plusButton.setOnClickListener {
-            if (movie != null) {
-                if (movie.seatsRemaining > 0) {
-                    movie.seatsRemaining--
-                    movie.seatsSelected++
-                    seatsRemaining.text = "${movie.seatsRemaining} seats remaining"
-                    seatsSelected.text = movie.seatsSelected.toString()
-                    updateSeats()
-                }
+            if (movie.seatsRemaining > 0) {
+                movie.seatsRemaining--
+                movie.seatsSelected++
+                seatsRemaining.text = "${movie.seatsRemaining} seats remaining"
+                seatsSelected.text = movie.seatsSelected.toString()
+                updateSeats()
             }
         }
 
