@@ -54,10 +54,11 @@ class MainActivity : AppCompatActivity() {
                 0
             )
         )
-        val movieAdapter = MovieAdapter(movie)
+
+        var movieAdapter = MovieAdapter(movie)
         recyclerView.adapter = movieAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
     }
-}
 
+}
