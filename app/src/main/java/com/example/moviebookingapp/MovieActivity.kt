@@ -30,12 +30,12 @@ class MovieActivity : AppCompatActivity(R.layout.activity_main){
     @SuppressLint("SetTextI18n")
     private fun setupMovieData(movie: Movie) {
         val movieImage = findViewById<ImageView>(R.id.movieImage)
-        val movieName = findViewById<TextView>(R.id.titleMovie)
+        val movieName : TextView = findViewById(R.id.titleMovie)
         val movieDescription = findViewById<TextView>(R.id.descriptionMovie)
         val movieStarring = findViewById<TextView>(R.id.starringMovie)
         val movieRunningTime = findViewById<TextView>(R.id.runningTimeMovie)
         val seatsRemaining = findViewById<TextView>(R.id.seatsRemainingMovie)
-        val seatsSelected = findViewById<TextView>(R.id.seatsSelectedMovie)
+        val seatsSelected = findViewById<TextView>(R.id.numSeats)
         val plusButton = findViewById<ImageView>(R.id.buttonPlus)
         val minusButton = findViewById<ImageView>(R.id.buttonMinus)
         val homeButton = findViewById<Button>(R.id.homeButton)
@@ -43,15 +43,12 @@ class MovieActivity : AppCompatActivity(R.layout.activity_main){
         movieName.text = movie.name
         movieDescription.text = movie.description
         movieStarring.text = movie.starring.joinToString(", ")
-        movieRunningTime.text = "${movie.runningTimeMins} mins"
-        seatsRemaining.text = "${movie.seatsRemaining} seats remaining"
-        seatsSelected.text = "${movie.seatsSelected} seats selected"
+        movieRunningTime.text = movie.runningTimeMins.toString()
+        seatsSelected.text = movie.seatsSelected.toString()
 
         Picasso.get()
             .load(movie.image)
             .into(movieImage)
-
-        seatsRemaining.text = "${movie.seatsRemaining} seats remaining"
 
         fun updateSeats() {
             plusButton.isEnabled = movie.seatsRemaining> 0
@@ -90,12 +87,12 @@ class MovieActivity : AppCompatActivity(R.layout.activity_main){
 
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
-        val movie = intent.getSerializableExtra("movie") as? Movie
+        val movie : Movie? = intent.getSerializableExtra("movie") as? Movie
         val resultIntent = Intent()
         if (movie != null) {
             resultIntent.putExtra("updatedMovie", movie)
+            setResult(Activity.RESULT_OK, resultIntent)
         }
-        setResult(Activity.RESULT_OK, resultIntent)
         super.onBackPressed()
     }
 }

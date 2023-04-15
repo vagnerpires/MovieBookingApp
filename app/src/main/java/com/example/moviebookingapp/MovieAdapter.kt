@@ -47,6 +47,7 @@ class MovieAdapter(private var movie: List<Movie>, private val itemClickListener
         val movieRunningTime: TextView = itemView.findViewById(R.id.runningTimeMovie)
         val movieSeatsRemaining: TextView = itemView.findViewById(R.id.seatsRemainingMovie)
 
+        @SuppressLint("SetTextI18n", "StringFormatInvalid")
         fun bind(movie: Movie) {
             itemView.setOnClickListener { itemClickListener(movie) }
 
@@ -57,6 +58,15 @@ class MovieAdapter(private var movie: List<Movie>, private val itemClickListener
                 movieBadge.visibility = View.GONE
             }
 
+            when {
+                movie.seatsSelected > 0 -> {
+                    movieSeatsRemaining.text = itemView.context.getString(R.string.selected_seats, movie.seatsSelected)
+                }
+                else -> {
+                    movieSeatsRemaining.text = itemView.context.getString(R.string._0_seats_remaining, movie.seatsRemaining)
+                }
+
+            }
         }
     }
 

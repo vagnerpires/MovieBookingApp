@@ -59,14 +59,13 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
         movieAdapter = MovieAdapter(movie) { movie ->
             val intent = Intent(this, MovieActivity::class.java)
             intent.putExtra("movie", movie)
             startActivityForResult(intent, MOVIE_ACTIVITY_REQUEST_CODE)
         }
 
-
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
         recyclerView.adapter = movieAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
     }

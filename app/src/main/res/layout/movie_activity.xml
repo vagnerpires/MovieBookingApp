@@ -156,7 +156,7 @@
         android:layout_marginStart="5dp"
         android:layout_toEndOf="@id/seatText"
         android:contentDescription="@string/minus"
-        app:srcCompat="@android:drawable/presence_busy" />
+        app:srcCompat="@drawable/baseline_indeterminate_check_box_24" />
 
     <ImageView
         android:id="@+id/buttonPlus"
@@ -166,7 +166,7 @@
         android:layout_marginStart="5dp"
         android:layout_toEndOf="@id/numSeats"
         android:contentDescription="@string/plus"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        app:srcCompat="@drawable/baseline_add_box_24" />
 
     <TextView
         android:id="@+id/numSeats"
