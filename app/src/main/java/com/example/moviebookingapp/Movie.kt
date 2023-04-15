@@ -1,5 +1,7 @@
 package com.example.moviebookingapp
 
+import java.io.Serializable
+
 data class Movie (
     var name: String,
     var image: String,
@@ -9,4 +11,4 @@ data class Movie (
     val runningTimeMins: Int,
     var seatsRemaining: Int,
     var seatsSelected: Int
-)
+) : Serializable

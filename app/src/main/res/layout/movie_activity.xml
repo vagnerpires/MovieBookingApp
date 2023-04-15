@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#000000"
+    android:orientation="vertical"
+    android:visibility="visible"
+    tools:visibility="visible">
+
+    <ImageView
+        android:id="@+id/movieImage"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:contentDescription="@string/contact_image"
+        android:src="@drawable/baseline_person_24"
+        android:visibility="visible"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/titleMovie"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_below="@id/movieImage"
+        android:layout_marginTop="0dp"
+        android:background="#000000"
+        android:paddingStart="10dp"
+        android:text="@string/title"
+        android:textColor="#FFFFFF"
+        tools:ignore="RtlSymmetry,TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/certificationMovie"
+        android:layout_width="102dp"
+        android:layout_height="20dp"
+        android:layout_below="@id/movieImage"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        android:layout_toEndOf="@+id/titleMovie"
+        android:background="#000000"
+        android:paddingStart="10dp"
+        android:text="@string/certification"
+        android:textColor="#4CAF50"
+        tools:ignore="RtlSymmetry,TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/starr"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_below="@id/titleMovie"
+        android:background="#000000"
+        android:paddingStart="10dp"
+        android:text="@string/starring"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        tools:ignore="RtlSymmetry,SmallSp" />
+
+    <TextView
+        android:id="@+id/starringMovie"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/titleMovie"
+        android:layout_toEndOf="@id/starr"
+        android:background="#000000"
+        android:paddingStart="10dp"
+        android:text="@string/starring"
+        android:textColor="#9F9F9F"
+        android:textSize="10sp"
+        tools:ignore="RtlSymmetry,SmallSp" />
+
+    <TextView
+        android:id="@+id/runtime"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_below="@id/starringMovie"
+        android:background="#000000"
+        android:paddingStart="10dp"
+        android:text="@string/running_time"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp"
+        tools:ignore="RtlSymmetry,SmallSp" />
+
+    <TextView
+        android:id="@+id/runningTimeMovie"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_below="@id/starringMovie"
+        android:layout_toEndOf="@id/runtime"
+        android:background="#000000"
+        android:paddingStart="10dp"
+        android:text="@string/time"
+        android:textColor="#9F9F9F"
+        android:textSize="10sp"
+        tools:ignore="RtlSymmetry,SmallSp" />
+
+    <TextView
+        android:id="@+id/descriptionMovie"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/runtime"
+        android:background="#000000"
+        android:paddingStart="10dp"
+        android:text="@string/description"
+        android:textColor="#9F9F9F"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/seatText"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@id/descriptionMovie"
+        android:layout_marginTop="10dp"
+        android:paddingStart="10dp"
+        android:text="@string/selected_seats"
+        android:textColor="#FFFFFF"
+        android:textIsSelectable="false"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/seatsRemainingMovie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/descriptionMovie"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/seatText"
+        android:background="#000000"
+        android:baselineAligned="false"
+        android:paddingEnd="10dp"
+        android:textAlignment="textEnd"
+        android:textColor="#ffffff"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/seatsSelectedMovie"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/descriptionMovie"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/buttonPlus"
+        android:background="#000000"
+        android:baselineAligned="false"
+        android:paddingEnd="10dp"
+        android:text=""
+        android:textAlignment="textEnd"
+        android:textColor="#ffffff"
+        android:visibility="invisible"
+        tools:ignore="RtlSymmetry" />
+
+    <ImageView
+        android:id="@+id/buttonMinus"
+        android:layout_width="20dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/descriptionMovie"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@id/seatText"
+        android:contentDescription="@string/minus"
+        app:srcCompat="@android:drawable/presence_busy" />
+
+    <ImageView
+        android:id="@+id/buttonPlus"
+        android:layout_width="20dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/descriptionMovie"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@id/numSeats"
+        android:contentDescription="@string/plus"
+        app:srcCompat="@android:drawable/ic_menu_add" />
+
+    <TextView
+        android:id="@+id/numSeats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/descriptionMovie"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/buttonMinus"
+        android:text=""
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/homeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:text="@string/home" />
+
+</RelativeLayout>

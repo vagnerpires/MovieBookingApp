@@ -10,4 +10,9 @@
     <string name="time">Time</string>
     <string name="Starring">Starring</string>
     <string name="credits_myvue">Credits: MyVue</string>
+    <string name="description">Description</string>
+    <string name="selected_seats">Selected Seats</string>
+    <string name="minus">Minus</string>
+    <string name="plus">Plus</string>
+    <string name="home">HOME</string>
 </resources>

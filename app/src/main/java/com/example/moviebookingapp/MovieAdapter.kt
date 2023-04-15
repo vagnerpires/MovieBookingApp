@@ -1,5 +1,6 @@
 package com.example.moviebookingapp
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
 
-class MovieAdapter (private val movie: List<Movie>) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class MovieAdapter(private var movie: List<Movie>, private val itemClickListener: (Movie) -> Unit) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val view =
@@ -19,7 +20,8 @@ class MovieAdapter (private val movie: List<Movie>) : RecyclerView.Adapter<Movie
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = movie[position]
-        holder.movieName.text= movie.name
+        holder.bind(movie)
+        holder.movieName.text = movie.name
         holder.movieCertification.text = movie.certification
         holder.movieStarring.text = movie.starring.toString()
         holder.movieRunningTime.text = movie.runningTimeMins.toString()
@@ -33,12 +35,22 @@ class MovieAdapter (private val movie: List<Movie>) : RecyclerView.Adapter<Movie
         return movie.size
     }
 
-    class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val movieImage = itemView.findViewById<ImageView>(R.id.movieImage)
-        val movieName = itemView.findViewById<TextView>(R.id.titleMovie)
-        val movieCertification = itemView.findViewById<TextView>(R.id.certificationMovie)
-        val movieStarring = itemView.findViewById<TextView>(R.id.starringMovie)
-        val movieRunningTime = itemView.findViewById<TextView>(R.id.runningTimeMovie)
-        val movieSeatsRemaining = itemView.findViewById<TextView>(R.id.seatsRemainingMovie)
+    inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val movieImage: ImageView = itemView.findViewById(R.id.movieImage)
+        val movieName: TextView = itemView.findViewById(R.id.titleMovie)
+        val movieCertification: TextView = itemView.findViewById(R.id.certificationMovie)
+        val movieStarring: TextView = itemView.findViewById(R.id.starringMovie)
+        val movieRunningTime: TextView = itemView.findViewById(R.id.runningTimeMovie)
+        val movieSeatsRemaining: TextView = itemView.findViewById(R.id.seatsRemainingMovie)
+
+        fun bind(movie: Movie) {
+            itemView.setOnClickListener { itemClickListener(movie) }
+        }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateMovie(movie: Movie) {
+        this.movie = listOf(movie)
+        notifyDataSetChanged()
     }
 }

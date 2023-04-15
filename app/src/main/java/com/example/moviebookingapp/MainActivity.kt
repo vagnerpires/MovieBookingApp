@@ -1,17 +1,21 @@
 package com.example.moviebookingapp
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
+@Suppress("DEPRECATION", "NAME_SHADOWING")
 class MainActivity : AppCompatActivity() {
+    private lateinit var movieAdapter : MovieAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+
         val movie = listOf(
             Movie(
                 "Creed III",
@@ -55,10 +59,32 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        var movieAdapter = MovieAdapter(movie)
+        movieAdapter = MovieAdapter(movie) { movie ->
+            val intent = Intent(this, MovieActivity::class.java)
+            intent.putExtra("movie", movie)
+            startActivityForResult(intent, MOVIE_ACTIVITY_REQUEST_CODE)
+        }
+
+
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
         recyclerView.adapter = movieAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
-
     }
 
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == MOVIE_ACTIVITY_REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                val updateMovie = data?.getSerializableExtra("movie") as Movie
+                updateMovie.let {
+                    movieAdapter.updateMovie(it)
+                }
+            }
+        }
+    }
+
+    companion object {
+        const val MOVIE_ACTIVITY_REQUEST_CODE = 1
+    }
 }
