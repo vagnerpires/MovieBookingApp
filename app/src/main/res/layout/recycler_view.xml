@@ -23,11 +23,11 @@
         android:layout_height="20dp"
         android:layout_below="@id/movieImage"
         android:layout_marginTop="0dp"
-        android:layout_weight="1"
         android:background="#000000"
         android:paddingStart="10dp"
-        android:text="Title"
-        android:textColor="#FFFFFF" />
+        android:text="@string/title"
+        android:textColor="#FFFFFF"
+        tools:ignore="RtlSymmetry,TextSizeCheck" />
 
     <TextView
         android:id="@+id/certificationMovie"
@@ -39,8 +39,9 @@
         android:layout_toEndOf="@+id/titleMovie"
         android:background="#000000"
         android:paddingStart="10dp"
-        android:text="Certification"
-        android:textColor="#4CAF50" />
+        android:text="@string/certification"
+        android:textColor="#4CAF50"
+        tools:ignore="RtlSymmetry,TextSizeCheck" />
 
     <TextView
         android:id="@+id/starr"
@@ -49,10 +50,11 @@
         android:layout_below="@id/titleMovie"
         android:background="#000000"
         android:paddingStart="10dp"
-        android:text="Starring:"
+        android:text="@string/starring"
         android:textColor="#FFFFFF"
         android:textSize="10sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="RtlSymmetry,SmallSp" />
 
     <TextView
         android:id="@+id/starringMovie"
@@ -62,9 +64,10 @@
         android:layout_toEndOf="@id/starr"
         android:background="#000000"
         android:paddingStart="10dp"
-        android:text="Starring"
+        android:text="@string/Starring"
         android:textColor="#9F9F9F"
-        android:textSize="10sp" />
+        android:textSize="10sp"
+        tools:ignore="RtlSymmetry,SmallSp" />
 
     <TextView
         android:id="@+id/movie_badge"
@@ -76,7 +79,7 @@
         android:layout_toEndOf="@id/certificationMovie"
         android:background="@drawable/badge"
         android:padding="10dp"
-        android:text="Filling Fast"
+        android:text="@string/filling_fast"
         android:textAlignment="center"
         android:visibility="invisible" />
 
@@ -87,9 +90,10 @@
         android:layout_below="@id/starringMovie"
         android:background="#000000"
         android:paddingStart="10dp"
-        android:text="Running Time:"
+        android:text="@string/running_time"
         android:textColor="#FFFFFF"
-        android:textSize="10sp" />
+        android:textSize="10sp"
+        tools:ignore="RtlSymmetry,SmallSp" />
 
     <TextView
         android:id="@+id/runningTimeMovie"
@@ -99,9 +103,10 @@
         android:layout_toEndOf="@id/runtime"
         android:background="#000000"
         android:paddingStart="10dp"
-        android:text="Time"
+        android:text="@string/time"
         android:textColor="#9F9F9F"
-        android:textSize="10sp" />
+        android:textSize="10sp"
+        tools:ignore="RtlSymmetry,SmallSp" />
 
     <TextView
         android:id="@+id/seatsRemainingMovie"
@@ -113,8 +118,9 @@
         android:background="#000000"
         android:baselineAligned="false"
         android:paddingEnd="10dp"
-        android:text="0 Seats Remaining"
+        android:text="@string/_0_seats_remaining"
         android:textAlignment="textEnd"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        tools:ignore="RtlSymmetry,TextSizeCheck" />
 
 </RelativeLayout>

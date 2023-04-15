@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">MovieBookingApp</string>
     <string name="contact_image" />
+    <string name="starring">Starring:</string>
+    <string name="running_time">Running Time:</string>
+    <string name="_0_seats_remaining">0 Seats Remaining</string>
+    <string name="title">Title</string>
+    <string name="certification">Certification</string>
+    <string name="filling_fast">Filling Fast</string>
+    <string name="time">Time</string>
+    <string name="Starring">Starring</string>
+    <string name="credits_myvue">Credits: MyVue</string>
 </resources>
