@@ -90,8 +90,8 @@ class MovieActivity : AppCompatActivity(R.layout.movie_activity){
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         val movie : Movie? = intent.getSerializableExtra("update movie") as? Movie
-        val resultIntent = Intent()
         if (movie != null) {
+            val resultIntent = Intent()
             resultIntent.putExtra("movie", movie)
             setResult(Activity.RESULT_OK, resultIntent)
         }

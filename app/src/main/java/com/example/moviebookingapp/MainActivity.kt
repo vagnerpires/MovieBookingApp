@@ -75,8 +75,8 @@ class MainActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == MOVIE_ACTIVITY_REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
-                val updateMovie = data?.getSerializableExtra("update movie") as Movie
-                updateMovie.let {
+                val movieUpdate = data?.getSerializableExtra("update movie") as Movie
+                movieUpdate.let {
                     movieAdapter.updateMovie(it)
                 }
             }
