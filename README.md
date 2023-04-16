@@ -1,8 +1,8 @@
 # Mobile Apps 1 CA2
 
-- Student Name: Your name
-- Student ID: 123456
-- Course: Your course
+- Student Name: Vagner Pires
+- Student ID: 24303
+- Course: Science in Computing
 
 ## Requirement Checklist
 
