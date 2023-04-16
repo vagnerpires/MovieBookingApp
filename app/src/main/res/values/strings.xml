@@ -15,4 +15,6 @@
     <string name="minus">Minus</string>
     <string name="plus">Plus</string>
     <string name="home">HOME</string>
+    <string name="a" />
+    <string name="seats_remaining">seats remaining</string>
 </resources>

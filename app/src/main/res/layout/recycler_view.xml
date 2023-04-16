@@ -115,16 +115,28 @@
 
     <TextView
         android:id="@+id/seatsRemainingMovie"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_below="@id/starringMovie"
-        android:layout_marginStart="0dp"
-        android:layout_toEndOf="@+id/runningTimeMovie"
+        android:layout_toStartOf="@id/seatsRemainingText"
         android:background="#000000"
         android:baselineAligned="false"
         android:paddingEnd="10dp"
-        android:textAlignment="textEnd"
         android:textColor="#ffffff"
-        tools:ignore="RtlSymmetry,TextSizeCheck" />
+        android:textSize="10sp"
+        tools:ignore="RtlSymmetry,SmallSp,TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/seatsRemainingText"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_below="@id/starringMovie"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        android:text="@string/seats_remaining"
+        android:textAlignment="textEnd"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp"
+        tools:ignore="SmallSp,TextSizeCheck" />
 
 </RelativeLayout>

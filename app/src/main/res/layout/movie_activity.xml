@@ -98,7 +98,7 @@
     <TextView
         android:id="@+id/descriptionMovie"
         android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/runtime"
         android:background="#000000"
         android:paddingStart="10dp"
@@ -109,19 +109,19 @@
     <TextView
         android:id="@+id/seatText"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="20dp"
         android:layout_below="@id/descriptionMovie"
         android:layout_marginTop="10dp"
         android:paddingStart="10dp"
         android:text="@string/selected_seats"
         android:textColor="#FFFFFF"
         android:textIsSelectable="false"
-        tools:ignore="RtlSymmetry" />
+        tools:ignore="RtlSymmetry,TextSizeCheck" />
 
     <TextView
         android:id="@+id/seatsRemainingMovie"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="20dp"
         android:layout_below="@id/descriptionMovie"
         android:layout_marginTop="10dp"
         android:layout_toEndOf="@id/seatText"
@@ -135,7 +135,7 @@
     <TextView
         android:id="@+id/seatsSelectedMovie"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="20dp"
         android:layout_below="@id/descriptionMovie"
         android:layout_marginTop="10dp"
         android:layout_toEndOf="@id/buttonPlus"

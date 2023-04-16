@@ -9,12 +9,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-
 class MovieAdapter(private var movie: List<Movie>, private val itemClickListener: (Movie) -> Unit) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.recycler_view, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.recycler_view, parent, false)
         return MovieViewHolder(view)
     }
 

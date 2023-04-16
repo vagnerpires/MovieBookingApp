@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso
 import com.example.moviebookingapp.Movie as Movie
 
 @Suppress("DEPRECATION")
-class MovieActivity : AppCompatActivity(R.layout.activity_main){
+class MovieActivity : AppCompatActivity(R.layout.movie_activity){
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,18 +29,20 @@ class MovieActivity : AppCompatActivity(R.layout.activity_main){
 
     @SuppressLint("SetTextI18n")
     private fun setupMovieData(movie: Movie) {
-        val movieImage = findViewById<ImageView>(R.id.movieImage)
+        val movieImage : ImageView = findViewById(R.id.movieImage)
         val movieName : TextView = findViewById(R.id.titleMovie)
-        val movieDescription = findViewById<TextView>(R.id.descriptionMovie)
-        val movieStarring = findViewById<TextView>(R.id.starringMovie)
-        val movieRunningTime = findViewById<TextView>(R.id.runningTimeMovie)
-        val seatsRemaining = findViewById<TextView>(R.id.seatsRemainingMovie)
-        val seatsSelected = findViewById<TextView>(R.id.numSeats)
-        val plusButton = findViewById<ImageView>(R.id.buttonPlus)
-        val minusButton = findViewById<ImageView>(R.id.buttonMinus)
-        val homeButton = findViewById<Button>(R.id.homeButton)
+        val movieCertification : TextView = findViewById(R.id.certificationMovie)
+        val movieDescription : TextView = findViewById(R.id.descriptionMovie)
+        val movieStarring : TextView = findViewById(R.id.starringMovie)
+        val movieRunningTime : TextView = findViewById(R.id.runningTimeMovie)
+        val seatsRemaining : TextView = findViewById(R.id.seatsRemainingMovie)
+        val seatsSelected : TextView = findViewById(R.id.numSeats)
+        val plusButton : ImageView = findViewById(R.id.buttonPlus)
+        val minusButton : ImageView = findViewById(R.id.buttonMinus)
+        val homeButton : Button = findViewById(R.id.homeButton)
 
         movieName.text = movie.name
+        movieCertification.text = movie.certification
         movieDescription.text = movie.description
         movieStarring.text = movie.starring.joinToString(", ")
         movieRunningTime.text = movie.runningTimeMins.toString()
@@ -87,10 +89,10 @@ class MovieActivity : AppCompatActivity(R.layout.activity_main){
 
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
-        val movie : Movie? = intent.getSerializableExtra("movie") as? Movie
+        val movie : Movie? = intent.getSerializableExtra("update movie") as? Movie
         val resultIntent = Intent()
         if (movie != null) {
-            resultIntent.putExtra("updatedMovie", movie)
+            resultIntent.putExtra("movie", movie)
             setResult(Activity.RESULT_OK, resultIntent)
         }
         super.onBackPressed()
